@@ -89,7 +89,7 @@ def process_json():
                            'pmin': [pp1.pmin, pp2.pmin, pp3.pmin, pp4.pmin],
                            'pmax': [pp1.pmax, pp2.pmax, pp3.pmax, pp4.pmax], 'cost': [pp1.cost, pp2.cost, pp3.cost, pp4.cost], 'ce': [pp1.ce, pp2.ce, pp3.ce, pp4.ce], 'p': [pp1.p, pp2.p, pp3.p, pp4.p]}, columns=columns, index=index)
 
-        # return str(df.name)
+        # check if target load is feasible
         if (load-wf1.p-wf2.p-pp1.pmax-pp2.pmax-pp3.pmax-pp4.pmax) > 0:
             return "Not enough power to meet requirement"
 
@@ -160,6 +160,7 @@ def process_json():
                 responseDf.loc[responseDf["name"] == wf2.name, "p"] = wf2.p
                 return responseDf.to_json(orient='records')
 
+        # only make use of wf1 and pp
         elif (load-wf1.p) > 0:
             rest = load-wf1.p
             df = df.sort_values("ce")
@@ -202,6 +203,7 @@ def process_json():
 
                 return responseDf.to_json(orient='records')
 
+         # only make use of wf2 and pp
         elif (load-wf2.p) > 0:
             rest = load-wf2.p
             df = df.sort_values("ce")
@@ -241,6 +243,7 @@ def process_json():
 
                 return responseDf.to_json(orient='records')
 
+        # do not use any wf and only pp
         else:
             rest = load
             df = df.sort_values("ce")
