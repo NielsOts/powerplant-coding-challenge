@@ -1,6 +1,8 @@
-Read Me
+##Read Me
 
-Algorithm:
+Install the requirements in requirements.txt and execute python main.py.
+
+##Algorithm:
 Step 1) Check if the required load can be produced by either or both Windfarms (this has to be exact).
 Step 2) If so, no other powerplants are necessary and the load produced matches the pmax multiplied with efficiency of the windfarm(s). The problem is solved.
 Step 3) If not, you calculate the residual load or load that needs to be produced by the powerplants.
