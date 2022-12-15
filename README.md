@@ -26,4 +26,6 @@ http://127.0.0.1:8888/productionplan
 
 Make POST request with json file as input.
 
+### Test example and solution (json files) are included
+
 \*The code is not dynamic in the fact that it is only able to read a json file of the structure as provided in all three payload examples.
