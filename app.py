@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
-import json
+
 from types import SimpleNamespace
 
 
